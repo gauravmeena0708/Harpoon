@@ -103,7 +103,7 @@ if __name__ == "__main__":
     great_model = GReaT.load_from_dir(models_dir)
     # max_length = 200 if args.dataname not in ['bean', 'default', 'gesture'] else 350  # some datasets need more tokens
     cat_edge_case = True if args.dataname == 'adult' else False
-    sz = 100 if args.dataname in ['gesture', 'news'] else 200
+    sz = 100 if args.dataname in ['gesture', 'news', 'default'] else 200
 
     for trial in tqdm(range(num_trials), desc='Out-of-sample imputation'):
         torch.cuda.empty_cache()
