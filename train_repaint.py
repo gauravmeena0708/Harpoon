@@ -46,7 +46,6 @@ if __name__ == '__main__':
         np.concatenate((np.mean(train_X[:, :num_numeric], axis=0), np.zeros(train_X.shape[1] - num_numeric)), axis=0),
         np.concatenate((np.std(train_X[:, :num_numeric], axis=0), np.ones(train_X.shape[1] - num_numeric)), axis=0))
     in_dim = train_X.shape[1]
-    X_np[:, :num_numeric] = (X_train_np[:, :num_numeric] - mean) / std
     X = (train_X - mean_X) / std_X
     X = torch.tensor(X, dtype=torch.float32)
 
