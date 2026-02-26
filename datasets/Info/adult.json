@@ -1,7 +1,4 @@
 {
-    "name": "adult",
-    "task_type": "binclass",
-    "header": null,
     "num_col_idx": [
         0,
         2,
@@ -18,9 +15,8 @@
         7,
         8,
         9,
-        13
-    ],
-    "target_col_idx": [
+        13,
         14
-    ]
+    ],
+    "target_col_idx": []
 }
