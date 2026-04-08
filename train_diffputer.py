@@ -69,7 +69,7 @@ if __name__ == '__main__':
     model = Model(denoise_fn=denoise_fn, hid_dim=in_dim).to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, weight_decay=0)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=50, verbose=False)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.9, patience=50)
 
     model.train()
 
