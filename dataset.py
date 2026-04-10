@@ -28,14 +28,14 @@ class Preprocessor:
     def encodeDf(self, scheme='Ordinal', df=None):
         if scheme == 'OHE':
             cats = self.OneHotEncoder.transform(df.iloc[:, self.info['cat_col_idx']])
-            nums = df.iloc[:, self.info['num_col_idx']]
+            nums = df.iloc[:, self.info['num_col_idx']].to_numpy(dtype=np.float32)
             self.numerical_indices_np_end = nums.shape[1]
-            return np.concatenate((nums, cats), axis=1)
+            return np.concatenate((nums, cats.astype(np.float32)), axis=1).astype(np.float32)
         elif scheme == 'Ordinal':
-            cats = self.OrdinalEncoder.transform(df.iloc[:, self.info['cat_col_idx']])
-            nums = df.iloc[:, self.info['num_col_idx']]
+            cats = self.OrdinalEncoder.transform(df.iloc[:, self.info['cat_col_idx']]).astype(np.float32)
+            nums = df.iloc[:, self.info['num_col_idx']].to_numpy(dtype=np.float32)
             self.numerical_indices_np_end = nums.shape[1]
-            return np.concatenate((nums, cats), axis=1)
+            return np.concatenate((nums, cats), axis=1).astype(np.float32)
         else:
             print('invalid encoding scheme')
             exit()
